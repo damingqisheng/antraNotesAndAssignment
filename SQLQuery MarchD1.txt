@@ -1,0 +1,47 @@
+Select * From Products
+
+Select ProductName, UnitPrice
+From Products
+Where UnitPrice > 1 and UnitPrice < 100
+
+Select ProductName [Prod Name], UnitPrice
+From Products
+Where ProductName = 'Chai' OR ProductName = 'Chang'
+
+Select ProductName [Prod Name], UnitPrice
+From Products
+Where ProductName in ('Chai', 'Chang')
+
+
+Select ProductName
+From Products
+Where ProductName Like '_[a-c]%'
+
+Select OrderId "Order Id From Order Details"
+From [Order Details]
+
+
+Select OrderId, IsNull(ShipRegion, 'Thisvalueisnull') 
+From Orders
+--Where ShipRegion Is Null
+
+Select * From Products --77
+Select * From suppliers --29
+--Group By 
+--Having
+
+Select CompanyName, ProductName
+From Suppliers s Left Join Products p On s.SupplierID = p.SupplierID
+
+--Inner Join
+
+Select CompanyName, ProductName
+From Suppliers s, Products p 
+Where s.SupplierID = p.SupplierID
+
+Select CompanyName, ProductName
+From [Order Details] od Left Join Products p On od.ProductId = p.ProductID 
+Left Join Suppliers s On s.SupplierID = p.SupplierID
+
+Select e.FirstName, m.FirstName
+From Employees e Left Join Employees m On e.ReportsTo = m.EmployeeID
